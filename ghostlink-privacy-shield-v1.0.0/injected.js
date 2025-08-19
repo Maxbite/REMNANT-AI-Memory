@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("GhostLink Privacy Shield: Injected script loaded")})();

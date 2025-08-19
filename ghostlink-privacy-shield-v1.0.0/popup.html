@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GhostLink Privacy Shield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="popup-container" class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-content">
+        <div class="logo-section">
+          <div class="logo-icon">🛡️</div>
+          <div class="logo-text">
+            <h1 class="app-name">GhostLink</h1>
+            <p class="app-tagline">Privacy Shield</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="settings-btn" class="icon-btn" title="Settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="popup-main">
+      <!-- Privacy Status Card -->
+      <section class="status-card">
+        <div class="status-header">
+          <div class="status-indicator">
+            <div id="status-dot" class="status-dot active"></div>
+            <span id="status-text" class="status-text">Privacy Protection Active</span>
+          </div>
+          <button id="privacy-toggle" class="toggle-switch active">
+            <div class="toggle-slider"></div>
+          </button>
+        </div>
+        
+        <div class="status-details">
+          <div class="detail-item">
+            <span class="detail-label">Current Site:</span>
+            <span id="current-site" class="detail-value">chat.openai.com</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Privacy Level:</span>
+            <span id="privacy-level" class="detail-value">Balanced</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Privacy Metrics -->
+      <section class="metrics-section">
+        <h2 class="section-title">Privacy Metrics</h2>
+        
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon">🔒</div>
+            <div class="metric-content">
+              <div id="anonymity-score" class="metric-value">95%</div>
+              <div class="metric-label">Anonymity Score</div>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-icon">🚫</div>
+            <div class="metric-content">
+              <div id="pii-removed" class="metric-value">3</div>
+              <div class="metric-label">PII Removed</div>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-icon">📊</div>
+            <div class="metric-content">
+              <div id="noise-added" class="metric-value">Yes</div>
+              <div class="metric-label">Noise Added</div>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-icon">📈</div>
+            <div class="metric-content">
+              <div id="total-queries" class="metric-value">127</div>
+              <div class="metric-label">Total Queries</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Privacy Level Selector -->
+      <section class="privacy-level-section">
+        <h2 class="section-title">Privacy Level</h2>
+        
+        <div class="privacy-levels">
+          <div class="privacy-level-option" data-level="minimal">
+            <input type="radio" id="level-minimal" name="privacy-level" value="minimal">
+            <label for="level-minimal" class="level-label">
+              <div class="level-header">
+                <span class="level-name">Minimal</span>
+                <span class="level-badge">Fast</span>
+              </div>
+              <p class="level-description">Basic PII protection with minimal processing delay</p>
+            </label>
+          </div>
+          
+          <div class="privacy-level-option" data-level="balanced">
+            <input type="radio" id="level-balanced" name="privacy-level" value="balanced" checked>
+            <label for="level-balanced" class="level-label">
+              <div class="level-header">
+                <span class="level-name">Balanced</span>
+                <span class="level-badge recommended">Recommended</span>
+              </div>
+              <p class="level-description">Comprehensive protection with good performance</p>
+            </label>
+          </div>
+          
+          <div class="privacy-level-option" data-level="maximum">
+            <input type="radio" id="level-maximum" name="privacy-level" value="maximum">
+            <label for="level-maximum" class="level-label">
+              <div class="level-header">
+                <span class="level-name">Maximum</span>
+                <span class="level-badge">Secure</span>
+              </div>
+              <p class="level-description">Strongest protection with advanced anonymization</p>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="actions-section">
+        <div class="action-buttons">
+          <button id="view-receipts-btn" class="action-btn secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14,2 14,8 20,8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10,9 9,9 8,9"></polyline>
+            </svg>
+            View Receipts
+          </button>
+          
+          <button id="export-data-btn" class="action-btn secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7,10 12,15 17,10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Export Data
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <div class="footer-links">
+        <button id="help-btn" class="footer-link">Help</button>
+        <button id="about-btn" class="footer-link">About</button>
+        <button id="feedback-btn" class="footer-link">Feedback</button>
+      </div>
+      <div class="version-info">v1.0.0</div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">Loading...</p>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification hidden">
+      <div class="notification-content">
+        <span class="notification-text"></span>
+        <button class="notification-close">×</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Privacy Settings</h2>
+        <button class="modal-close">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="setting-group">
+          <h3>Privacy Features</h3>
+          
+          <div class="setting-item">
+            <label class="setting-label">
+              <input type="checkbox" id="enable-pii-detection" checked>
+              <span class="checkmark"></span>
+              PII Detection
+            </label>
+            <p class="setting-description">Automatically detect and remove personally identifiable information</p>
+          </div>
+          
+          <div class="setting-item">
+            <label class="setting-label">
+              <input type="checkbox" id="enable-differential-privacy" checked>
+              <span class="checkmark"></span>
+              Differential Privacy
+            </label>
+            <p class="setting-description">Add statistical noise to protect against inference attacks</p>
+          </div>
+          
+          <div class="setting-item">
+            <label class="setting-label">
+              <input type="checkbox" id="enable-semantic-generalization" checked>
+              <span class="checkmark"></span>
+              Semantic Generalization
+            </label>
+            <p class="setting-description">Replace specific terms with more general alternatives</p>
+          </div>
+          
+          <div class="setting-item">
+            <label class="setting-label">
+              <input type="checkbox" id="enable-crypto-receipts" checked>
+              <span class="checkmark"></span>
+              Cryptographic Receipts
+            </label>
+            <p class="setting-description">Generate verifiable proof of privacy protection</p>
+          </div>
+        </div>
+        
+        <div class="setting-group">
+          <h3>Advanced Options</h3>
+          
+          <div class="setting-item">
+            <label class="setting-label">
+              <input type="checkbox" id="enable-relay-routing">
+              <span class="checkmark"></span>
+              Relay Routing
+            </label>
+            <p class="setting-description">Route queries through privacy-preserving relays</p>
+          </div>
+          
+          <div class="setting-item">
+            <label for="noise-level" class="setting-label-text">Noise Level</label>
+            <input type="range" id="noise-level" min="0.1" max="1.0" step="0.1" value="0.3" class="range-input">
+            <div class="range-labels">
+              <span>Low</span>
+              <span>High</span>
+            </div>
+          </div>
+          
+          <div class="setting-item">
+            <label for="retention-days" class="setting-label-text">Data Retention (days)</label>
+            <select id="retention-days" class="select-input">
+              <option value="7">7 days</option>
+              <option value="30" selected>30 days</option>
+              <option value="90">90 days</option>
+              <option value="365">1 year</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button id="settings-cancel" class="btn secondary">Cancel</button>
+        <button id="settings-save" class="btn primary">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
