@@ -41,6 +41,15 @@ In This Repository
 
 📄 White Paper Abstract – docs/abstract.md
 
+---
+
+### Project History
+
+This campaign builds on earlier experiments such as **[GhostLink – Privacy Shield (v1)](https://github.com/Maxbite/GhostLink-PrivacyShield-v1)**,  
+an archived prototype for privacy-first, AI-assisted tunneling and comms.  
+GhostLink has been preserved for reference, but its concepts are now fully superseded by REMNANT.
+
+
 🛠️ Reference Code – early experiments for portable memory storage
 
 📢 Campaign Resources – advocacy materials, legal briefs, and outreach drafts
